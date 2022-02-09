@@ -10,7 +10,20 @@ namespace FlipCoinSimulation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to flip Coin Simulation Program");
+            //CONSTANTS
+            const int HEAD = 1;
+            const int TAIL = 0;
+
+            Random rand = new Random();
+            int flipCoin = rand.Next(0,2);
+            if (flipCoin == HEAD)
+            {
+                Console.WriteLine("Hurray! Head wins");
+            }
+            else
+            {
+                Console.WriteLine("Boorah! Tail wins");
+            }
             Console.ReadLine();
         }
     }
