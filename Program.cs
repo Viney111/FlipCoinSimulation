@@ -13,14 +13,13 @@ namespace FlipCoinSimulation
             //CONSTANTS
             const int HEAD = 1;
             const int TAIL = 0;
-            const int flipCoinCounter = 20;
+            const int limitOfWinningTimes = 21;
 
             //VARIABLES
             int headCounter = 0;
             int tailCounter = 0;
-            int i = 0;
 
-            while (i < flipCoinCounter)
+            while ( headCounter < limitOfWinningTimes && tailCounter < limitOfWinningTimes)
             {
                 Random rand = new Random();
                 int flipCoin = rand.Next(0, 2);
@@ -34,11 +33,20 @@ namespace FlipCoinSimulation
                     //Console.WriteLine("Boorah! Tail wins");
                     tailCounter++;
                 }
-             i++;
             }
-            Console.WriteLine($"Head wins {headCounter}");
-            Console.WriteLine($"Tail wins {tailCounter}");
-            Console.ReadLine();
+            if (headCounter > tailCounter)
+            {
+                Console.WriteLine($"Head wins by {headCounter - tailCounter} times");
+            }
+            else if (tailCounter > headCounter)
+            {
+                Console.WriteLine($"Tail wins by {tailCounter - headCounter} times");
+            }
+            else
+            {
+                Console.WriteLine($"tie");
+            }
+           Console.ReadLine();
         }
     }
 }
