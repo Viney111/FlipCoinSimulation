@@ -13,17 +13,31 @@ namespace FlipCoinSimulation
             //CONSTANTS
             const int HEAD = 1;
             const int TAIL = 0;
+            const int flipCoinCounter = 20;
 
-            Random rand = new Random();
-            int flipCoin = rand.Next(0,2);
-            if (flipCoin == HEAD)
+            //VARIABLES
+            int headCounter = 0;
+            int tailCounter = 0;
+            int i = 0;
+
+            while (i < flipCoinCounter)
             {
-                Console.WriteLine("Hurray! Head wins");
+                Random rand = new Random();
+                int flipCoin = rand.Next(0, 2);
+                if (flipCoin == HEAD)
+                {
+                    //Console.WriteLine("Hurray! Head wins");
+                    headCounter++;
+                }
+                else
+                {
+                    //Console.WriteLine("Boorah! Tail wins");
+                    tailCounter++;
+                }
+             i++;
             }
-            else
-            {
-                Console.WriteLine("Boorah! Tail wins");
-            }
+            Console.WriteLine($"Head wins {headCounter}");
+            Console.WriteLine($"Tail wins {tailCounter}");
             Console.ReadLine();
         }
     }
